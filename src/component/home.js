@@ -101,7 +101,7 @@ export default function Home() {
                     <span class="card__preci card__preci--before">{data.title}</span>
                     <span class="card__preci card__preci--after">{data.price}rs</span>
                     <span class="card__preci card__preci--after">
-                        <Button class="btn btn-primary"
+                        <Button class="btn btn-primary btn-custom"
                         onClick={() => {
                             setAddtocart([...addtocart, data]);
                         }}
