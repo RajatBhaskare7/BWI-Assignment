@@ -1,13 +1,228 @@
-body {
+/* Quick and dirty normalize hax */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #eee;
+  color: #a1a1a1;
+  font-family: sans-serif;
+}
+
+.containersearch {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.searchInputWrapper {
+  position: relative;
+}
+.searchIcon{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+
+}
+.searchInput {
+  width: 30rem;
+  height: 3rem;
+  padding: 0 1rem; 
+  border-radius: 2rem;
+  border: none;
+  transition: transform 0.1s ease-in-out;
+}
+
+::placeholder {
+  color: #a1a1a1;
+}
+
+/* hide the placeholder text on focus */
+:focus::placeholder {
+  text-indent: -999px
+}
+
+/* .searchInput:focus {
+  outline: none;
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+} */
+
+
+.searchInputIcon {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.5rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+}
+
+.container:focus-within > 
+.searchInputWrapper > .searchInputIcon {
+  right: 0.2rem;
+}
+
+h1{
+  font-size: var(--h1-font-size);
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+a{
+  text-decoration: none;
+}
+
+/*-- LAYAOUT --*/
+.main {
+  padding: 2rem 0;
+}
+.bd-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 1200px;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*-- PAGES --*/
+.title-shop{
+  position: relative;
+  margin: 0 2.5rem;
+}
+.title-shop::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 72px;
+  height: 2px;
+  background-color: var(--dark-color);
+  margin-left: .25rem;
+}
+
+/*-- COMPONENT --*/
+.card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+article:nth-child(1){
+  background-color: var(--first-color);
+}
+article:nth-child(2){
+  background-color: var(--second-color);
+}
+article:nth-child(3){
+  background-color: var(--third-color);
+}
+article:nth-child(4){
+  background-color: var(--second-color);
+}
+.card__img{
+  width: 180px;
+  height: auto;
+  padding: 3rem 0;
+  transition: .5s;
+}
+.card__name{
+  position: absolute;
+  left: -25%;
+  top: 0;
+  width: 3.5rem;
+  padding: 1rem;
+  height: 100%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  background-color: var(--dark-color);
+  color: #000;
+  font-weight: bold;
+  transition: .5s;
+}
+.card__icon{
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+.card__icon:hover{
+  color: var(--accent-color);
+}
+.card__precis{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: .5s;
+}
+.card__preci{
+  display: block;
+  text-align: center;
+}
+.card__preci--before{
+  font-size: var(--smaller-font-size);
+  color: var(--accent-color);
+  margin-bottom: .25rem;
+}
+.card__preci--now{
+  font-size: var(--h3-font-size);
+  font-weight: bold;
+}
+/*Move left*/
+.card:hover{
+  box-shadow: 0 .5rem 1rem #D1D9E6;
+}
+.card:hover .card__name{
+  left: 0;
+}
+.card:hover .card__img{
+  transform: rotate(30deg);
+  margin-left: 3.5rem;
+}
+.card:hover .card__precis{
+  margin-left: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+/*-- FOOTER --*/
+
+footer{
+text-align: center;
+}
+
+/*-- MEDIA QUERIES --*/
+@media screen and (min-width: 1200px){
+  body{
+      margin: 3rem 0 0 0;
+  }
+  .title-shop{
+      margin: 0 5rem;
+  }
+  .bd-grid{
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .searchInput{
+      width: 20rem;
+  }
+
 }
